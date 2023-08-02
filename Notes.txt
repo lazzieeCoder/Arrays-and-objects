@@ -1,0 +1,229 @@
+Contents:
+Introduction to Array
+Array and Object JSON iteration
+Array & Object Destructuring [] {key}
+object.this Method
+Create New Objects Using New Method
+
+Objects:- 
+=>Js objects are data structures used to store and organize data.
+=>Objects are variables too.
+=>objects always declared in key-value pairs
+=>Object is called real time entity (touch and feel)
+=>But object contains many values & can be with different datatypes
+var/let/const objectname =
+{
+    key: value
+}
+Example:-
+=> A car has prop like weight and color & methods like start and stop
+=> All car has same method but prop differ from car to car
+
+=> There are 2 ways to declare objects.
+1. to declare objects using curly brackets {}
+const person ={
+    name: "Rajini",
+    age: 45,
+    occupation: "actor"
+}
+=> to print the output in object we have 2 methods
+**dot notation
+console.log(person.name); // Rajini
+console.log(person.age); //45
+console.log(person.occupation); //actor
+**square brackets
+console.log(person["name"]);// Rajini
+console.log(person["age"]);// 45
+console.log(person["occupation"]);// actor
+2. to declare objects using new methods (Object constructor using the new keyword)
+const person = new Object();
+person.name = "rajini";
+person.age = 45;
+person.occupation = "actor";
+
+==>Modifying the Object
+const person = {
+    name: "rajini",
+    age: 45
+}
+=> there are two methods to modify object
+1.dot notation
+person.name= "kamal"
+console.log(person); 
+//{name:"kamal",age:45}
+2.square brackets
+person["age"]=60;
+console.log(person); 
+//{name:"kamal",age:60}
+
+==>Adding a new property
+const person = {
+    name:"kamal",
+    age:60
+}
+ person.occupation= "actor"
+ console.log(person);
+ //{name:"kamal",age:60,occupation:"actor"}
+
+ ==>Removing Obj property
+ const person = {
+    name:"kamal",
+    age:60,
+    city: "chennai"
+}
+delete person.city // it will delete the city prop in obj
+console.log(person);
+ //{name:"kamal",age:60}
+ **------------------------------------------------------------**
+==> Array and Object JSON iteration
+JSON:- 
+=>(Javascript Object Notation) is a lightweight data interchange format.
+=>It uses key value pairs
+=>similar to object
+=>the synatx consists of 2 types {} is for object json , [] is for array json
+====>JSON Object
+const person={
+    name: "kamal",
+    age:60
+}
+===>JSON Array
+const fruits = ["apple","banana","orange"]
+
+==>Parse JSON : to convert a json string into a javascript object.
+synatx: JSON.parse()
+example:
+const a = '{"name":"kamal","age":60}'; 
+console.log(a);
+var b = JSON.parse(a);
+console.log(b);
+==>JSON.stringify : to convert a javascript object into a json string.
+const c = {
+    name: "kamal",
+    age: 60
+}
+console.log(c)
+const d = JSON.stringify(c);
+console.log(d)
+
+==>Nested JSON object
+var person = {
+    "name":"kamal",
+    "age" :60,
+    "occupation":"actor",
+    "address": {
+        "city" : "chennai",
+        "pincode" : 60001
+    }
+}
+console.log(person)
+console.log(person.address.city)
+
+==>Nested JSON array
+var person = [
+    {
+        "name":"kamal",
+        "age":60
+    },
+    {
+        "name":"rajini",
+        "age":55
+    }
+]
+console.log(person)
+console.log(person[1].age)//55
+**--------------------------------------**
+Array & Object Destructuring
+==>Array Destructuring
+const arr = [1,2,3];
+const[x,z,wwww,d=4]= arr;
+console.log(x);
+console.log(z);
+console.log(wwww);
+console.log(d);
+console.log(arr);
+ ==> Object Destructuring
+ const obj = {
+    name: "kamal",
+    age:60,
+    address:{
+        city: "chennai",
+        pin: 60001
+    }
+ }
+//const{key}=objectname
+const {name,age}= obj;
+console.log(name);
+console.log(age);
+without Destructuring
+//console.log(obj.address.city)
+****-----------------------------------------***
+Use Strict in Js
+without strict mode
+fullname = "kamal"
+console.log(fullname)
+with strict mode
+'use strict';
+fullname = "kamal"
+console.log(fullname)
+*************------------------------------**********
+object.this Method
+=>this keyword refers to an object
+=> Which object depends on how this is being invoked(used or called)
+1. Using "this" keyword alone, refers to global object
+2. In regular function , refers to global object
+3. In a function in strict mode , "this" is undefined.
+4. In a method, "this" refers to the owner object.
+Example:-
+1. Using "this" keyword alone, refers to global object
+console.log(this);
+2.In regular function , refers to global object
+const a = function(){
+    console.log("hello world");
+    console.log(this)
+}
+a();
+3. In a function in strict mode , "this" is undefined.
+'use strict';
+const a = function(){
+    console.log("strict mode");
+    console.log(this)
+}
+a();
+4. In a method, "this" refers to the owner object.
+const person = {
+    names : "kamal",
+    age: 60,
+    occupation: "actor"
+    detail: function(){
+        console.log(`I love ❤ ${this.names}`)
+    }
+}
+console.log(person.detail());
+***------------------------------------------------------****
+Javascript Object methods
+1.Object.assign();
+2.Object.create();
+3.Object.entries();
+4.Object.freeze();
+5.Object.keys();
+6.Object.values();
+7.Object.seal();
+*************---------------------------------------------**********
+title caps steps:
+tolowercase
+split
+for loop
+charAt(0)
+touppercase
+slice
+join
+
+palindrome steps
+slice
+tostring
+split
+reverse
+join
+for()
+push
+
